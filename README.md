@@ -1,5 +1,5 @@
 # ef-migration-runtime-schema
-CLI to add constuctor injection after EF Migration to allow cutomization of the schema at runtime
+CLI to add constuctor injection after EF Migration to allow customization of the schema at runtime
 
 
 This projet was motivated by the need to specify a custom schema during a runtime migration when using Entity Framework.
@@ -82,8 +82,8 @@ public partial class AddUserName : Migration
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-   ->       name: "FullName",
-            schema: _schema.Schema,
+            name: "FullName",
+    ->      schema: _schema.Schema,
             table: "Customers",
             nullable: true);
         }
