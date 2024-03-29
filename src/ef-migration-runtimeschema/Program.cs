@@ -8,9 +8,9 @@ var interfaceNameOption = new Option<String?>(
     IsRequired = true,
 };
 
-var migrationFileNameOption = new Option<String?>(
-    name: "--migrationFile",
-    description: "The Path to the migration file");
+var migrationsFileNameOption = new Option<String?>(
+    name: "--migrations-file",
+    description: "The path to the migrations file");
 
 var efOptions = new Option<String?>(
     name: "--efOptions",
@@ -19,13 +19,13 @@ var efOptions = new Option<String?>(
 var rootCommand = new RootCommand("CLI for ef-migration-runtime-schema");
 rootCommand.AddOption(efOptions);
 rootCommand.AddOption(interfaceNameOption);
-rootCommand.AddOption(migrationFileNameOption);
+rootCommand.AddOption(migrationsFileNameOption);
 
 rootCommand.SetHandler(async (interfaceName, migrationFileName, efOptions) =>
 {
     await ExecuteMigration(interfaceName!, migrationFileName, efOptions);
 },
-           interfaceNameOption,migrationFileNameOption, efOptions);
+           interfaceNameOption, migrationsFileNameOption, efOptions);
 
 return await rootCommand.InvokeAsync(args);
 
