@@ -3,7 +3,7 @@ using System.CommandLine;
 
 var interfaceNameOption = new Option<String?>(
     name: "--interface",
-    description: "The name of the interface to inject")
+    description: "The fully qualified name of the interface to inject")
 {
     IsRequired = true,
 };
