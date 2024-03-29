@@ -1,6 +1,9 @@
 # ef-migration-runtime-schema
 CLI to add constuctor injection after EF Migration to allow customization of the schema at runtime
 
+[![NuGet Version](https://img.shields.io/nuget/v/ef-migration-runtime-schema)](https://www.nuget.org/packages/ef-migration-runtime-schema)
+
+
 
 This projet was motivated by the need to specify a custom schema during a runtime migration when using Entity Framework.
 

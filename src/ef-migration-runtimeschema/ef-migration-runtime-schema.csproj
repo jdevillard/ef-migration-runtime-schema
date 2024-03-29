@@ -16,11 +16,15 @@
 		<ToolCommandName>ef-migration-runtime-schema</ToolCommandName>
 		<PackageOutputPath>./nupkg</PackageOutputPath>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageTags>efcore cli</PackageTags>	
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageTags>efcore cli</PackageTags>
+		<PackageProjectUrl>https://github.com/jdevillard/ef-migration-runtime-schema</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/jdevillard/ef-migration-runtime-schema</RepositoryUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+		<None Include="..\..\LICENSE" Pack="true" PackagePath="\"/>
 	</ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
