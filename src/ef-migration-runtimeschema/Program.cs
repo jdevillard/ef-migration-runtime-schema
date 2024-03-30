@@ -39,7 +39,10 @@ var parser = new CommandLineBuilder(rootCommand)
                 [
                     HelpBuilder.Default.SynopsisSection(),
                     // replacing the HelpBuilder.Default.CommandUsageSection() delegate
-                    _ => _.Output.WriteLine("Usage:\n  ef-migration-runtime-schema [options] [-- <ef-options>...]"),
+                    _ => {
+                        _.Output.WriteLine("Usage:\n  ef-migration-runtime-schema [options] [-- <ef-options>...]");
+                        _.Output.WriteLine("Usage:\n  dotnet ef-core-runtime-schema [options] [-- <ef-options>...]");
+                    },
                     HelpBuilder.Default.CommandArgumentsSection(),
                     HelpBuilder.Default.OptionsSection(),
                 ]);
