@@ -105,7 +105,7 @@ Description:
 
 Usage:
   ef-migration-runtime-schema [options] [-- <ef-options>...]
-  <!-- dotnet ef-core-runtime-schema [options] [-- <ef-options>...] -->
+  dotnet ef-core-runtime-schema [options] [-- <ef-options>...]
 
 Arguments:
   <ef-options>  EF Core CLI command and arguments
