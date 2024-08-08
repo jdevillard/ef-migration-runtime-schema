@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
+	<AssemblyName>dotnet-ef-core-runtime-schema</AssemblyName>
     <RootNamespace>JDEV.EFMigrationRuntimeSchema</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -13,7 +14,8 @@
 
 	<PropertyGroup>
 		<PackAsTool>true</PackAsTool>
-		<ToolCommandName>ef-migration-runtime-schema</ToolCommandName>
+		<ToolCommandName>dotnet-ef-core-runtime-schema</ToolCommandName>
+		<PackageId>ef-migration-runtime-schema</PackageId>
 		<PackageOutputPath>./nupkg</PackageOutputPath>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>

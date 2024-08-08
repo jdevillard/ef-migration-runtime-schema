@@ -56,7 +56,7 @@ The tool can be invoked in one of two ways:
 ```bash
 dotnet ef migrations add AddUserName -o <path-to-migrations-file>
 
-ef-migration-runtime-schema \
+dotnet ef-core-runtime-schema \
   --interface EfCoreRuntimeSchema.IDbContextSchema \
   --migrations-file <path-to-migrations-file>
 ```
@@ -64,7 +64,7 @@ ef-migration-runtime-schema \
 - Passing the EF Core migrations arguments after the `--` token, when generating a new migration
 
 ```bash
-ef-migration-runtime-schema \
+dotnet ef-core-runtime-schema \
   --interface EfCoreRuntimeSchema.IDbContextSchema \
   -- migrations add AddUserName -o <path-to-migrations-file>"
 ```
@@ -105,6 +105,7 @@ Description:
 
 Usage:
   ef-migration-runtime-schema [options] [-- <ef-options>...]
+  dotnet ef-core-runtime-schema [options] [-- <ef-options>...]
 
 Arguments:
   <ef-options>  EF Core CLI command and arguments
