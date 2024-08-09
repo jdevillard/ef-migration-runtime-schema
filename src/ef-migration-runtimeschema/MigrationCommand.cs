@@ -14,8 +14,16 @@ namespace JDEV.EFMigrationRuntimeSchema
             // creation of the syntax tree for every file
             var programPath = migrationFilePath;
             var programText = File.ReadAllText(programPath);
+            SyntaxNode result = RewriteSyntaxtNode(interfaceName, programPath, programText);
+
+            using var fileWriter = new StreamWriter(programPath, append: false);
+            result.WriteTo(fileWriter);
+        }
+
+        public static SyntaxNode RewriteSyntaxtNode(string interfaceName, string programPath, string programText)
+        {
             SyntaxTree programTree = CSharpSyntaxTree.ParseText(programText)
-                                     .WithFilePath(programPath);
+                                                 .WithFilePath(programPath);
 
             var root = (CompilationUnitSyntax)programTree.GetRoot();
 
@@ -30,7 +38,7 @@ namespace JDEV.EFMigrationRuntimeSchema
                     SyntaxFactory.Parameter(SyntaxFactory.Identifier("schema"))
                         .WithType(SyntaxFactory.ParseTypeName(schemaInterface)))
                   .WithBody(SyntaxFactory.Block(SyntaxFactory.ParseStatement($"_schema = schema;"))
-                  
+
                   );
 
             var field = SyntaxFactory.FieldDeclaration(
@@ -70,9 +78,7 @@ namespace JDEV.EFMigrationRuntimeSchema
 
             var schemaRewriter = new SchemaRewriter();
             var result = schemaRewriter.Visit(formattedRoot);
-            
-            using var fileWriter = new StreamWriter(programPath, append: false);
-            result.WriteTo(fileWriter);
+            return result;
         }
     }
 }
