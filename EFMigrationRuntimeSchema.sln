@@ -9,8 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ef-migration-runtime-schema
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{AA4788FF-0A90-4BD1-B33E-D95FB0DC927F}"
 	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ef-migration-runtimeschema.Tests", "ef-migration-runtimeschema.Tests\ef-migration-runtimeschema.Tests.csproj", "{5F6954D5-0BE6-4DF4-9C0E-80A35A06A16C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,12 +25,17 @@ Global
 		{C53FC521-41AD-4ACE-8D4A-3566AADC75CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C53FC521-41AD-4ACE-8D4A-3566AADC75CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C53FC521-41AD-4ACE-8D4A-3566AADC75CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F6954D5-0BE6-4DF4-9C0E-80A35A06A16C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F6954D5-0BE6-4DF4-9C0E-80A35A06A16C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F6954D5-0BE6-4DF4-9C0E-80A35A06A16C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F6954D5-0BE6-4DF4-9C0E-80A35A06A16C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C53FC521-41AD-4ACE-8D4A-3566AADC75CC} = {AD4135C5-9840-4384-9637-BCDF50D5757E}
+		{5F6954D5-0BE6-4DF4-9C0E-80A35A06A16C} = {AD4135C5-9840-4384-9637-BCDF50D5757E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4A97E1A-9797-4B04-A831-EF4B383BD138}
