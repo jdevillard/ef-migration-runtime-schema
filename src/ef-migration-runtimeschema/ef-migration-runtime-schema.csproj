@@ -22,7 +22,7 @@
 		<PackageTags>efcore cli</PackageTags>
 		<PackageProjectUrl>https://github.com/jdevillard/ef-migration-runtime-schema</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/jdevillard/ef-migration-runtime-schema</RepositoryUrl>
-		<PackageVersion>1.0.1</PackageVersion>
+		<PackageVersion>1.0.2</PackageVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

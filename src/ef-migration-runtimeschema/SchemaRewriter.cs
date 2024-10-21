@@ -13,6 +13,9 @@ namespace JDEV.EFMigrationRuntimeSchema
             if (node.NameColon?.Name.Identifier.Text == "schema")
                 return CreateSchemaRefnode(node);
 
+            if (node.NameColon?.Name.Identifier.Text == "principalSchema")
+                return CreateSchemaRefnode(node);
+
 
             //Replace Schema Name for migrationBuilder.EnsureSchema()
             if (node.NameColon?.Name.Identifier.Text == "name" 
