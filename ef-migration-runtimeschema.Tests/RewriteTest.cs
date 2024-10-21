@@ -178,5 +178,93 @@ public partial class AddUserName : Migration
         Assert.Equal(final, str, ignoreLineEndingDifferences: true);
     }
 
+
+        [Fact]
+        public void ShouldReplaceSchemaInForeignKeyTableConstraint()
+        {
+            var classString = @"
+public partial class AddUserName : Migration
+{
+    
+    /// <inheritdoc />
+    protected override void Up(MigrationBuilder migrationBuilder)
+    {
+    migrationBuilder.CreateTable(
+        name: ""OrganizationUser"",
+        schema: _schema.Schema,
+        columns: table => new
+        {
+            OrganizationsId = table.Column<string>(type: ""text"", nullable: false),
+            UsersId = table.Column<string>(type: ""text"", nullable: false)
+        },
+        constraints: table =>
+        {
+            table.PrimaryKey(""PK_OrganizationUser"", x => new { x.OrganizationsId, x.UsersId });
+            table.ForeignKey(
+                name: ""FK_OrganizationUser_Organization_OrganizationsId"",
+                column: x => x.OrganizationsId,
+                principalSchema: ""defaultSchema"",
+                principalTable: ""Organization"",
+                principalColumn: ""Id"",
+                onDelete: ReferentialAction.Cascade);
+            table.ForeignKey(
+                name: ""FK_OrganizationUser_Users_UsersId"",
+                column: x => x.UsersId,
+                principalSchema: ""defaultSchema"",
+                principalTable: ""Users"",
+                principalColumn: ""Id"",
+                onDelete: ReferentialAction.Cascade);
+        });
+}";
+
+            var final = @"
+public partial class AddUserName : Migration
+{
+    private readonly InterfaceName _schema;
+
+    /// <inheritdoc />
+    public AddUserName(InterfaceName schema)
+    {
+        _schema = schema;
+    }
+
+    /// <inheritdoc />
+    protected override void Up(MigrationBuilder migrationBuilder)
+    {
+    migrationBuilder.CreateTable(
+        name: ""OrganizationUser"",
+        schema: _schema.Schema,
+        columns: table => new
+        {
+            OrganizationsId = table.Column<string>(type: ""text"", nullable: false),
+            UsersId = table.Column<string>(type: ""text"", nullable: false)
+        },
+        constraints: table =>
+        {
+            table.PrimaryKey(""PK_OrganizationUser"", x => new { x.OrganizationsId, x.UsersId });
+            table.ForeignKey(
+                name: ""FK_OrganizationUser_Organization_OrganizationsId"",
+                column: x => x.OrganizationsId,
+                principalSchema: _schema.Schema,
+                principalTable: ""Organization"",
+                principalColumn: ""Id"",
+                onDelete: ReferentialAction.Cascade);
+            table.ForeignKey(
+                name: ""FK_OrganizationUser_Users_UsersId"",
+                column: x => x.UsersId,
+                principalSchema: _schema.Schema,
+                principalTable: ""Users"",
+                principalColumn: ""Id"",
+                onDelete: ReferentialAction.Cascade);
+        });
+}";
+
+            var result = MigrationCommand.RewriteSyntaxtNode(interfaceName, "testPath", classString);
+            var str = result.ToFullString();
+
+            Assert.Equal(final, str, ignoreLineEndingDifferences: true);
+        }
+
+
     }
 }
